@@ -1,9 +1,9 @@
-/* Add in this import Google Fonts!!! */
-@import url("");
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
-/* Change base CSS styles!!! */
-
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -15,18 +15,67 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #111;
-  color: white;
+
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+
+  background-color: #111;
+  color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font: inherit;
 }
 
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
-button,
-input,
-textarea {
-  font: inherit;
+/* Mobile */
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+}
+
+/* Desktop */
+@media only screen and (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+    padding: 0 64px;
+  }
 }
