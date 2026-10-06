@@ -20,12 +20,9 @@
 }
 .burger_button {
   display: flex;
-  align-items: center;
-  justify-content: center;
-
   background: transparent;
-  color: var(--color-text);
-  font-size: 28px;
+}
+.burger_button_img {
 }
 .open {
   display: flex;
@@ -42,13 +39,13 @@
   background-color: #c61e1e;
 }
 .logo {
+  display: flex;
+  align-items: center;
 }
-.logo_text {
-  font-family: var(--font-family);
-  font-weight: 800;
-  font-size: 18px;
-  line-height: 120%;
-  color: var(--color-text);
+.logo_img {
+  display: block;
+  width: 100px;
+  height: auto;
 }
 
 /* Tablet */
