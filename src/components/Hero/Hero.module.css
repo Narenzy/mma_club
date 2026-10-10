@@ -1,42 +1,6 @@
 .hero_section {
   display: flex;
-}
-.hero_container {
-  margin: 60px 0 24px;
-}
-.hero_title {
-  font-weight: 800;
-  font-size: 46px;
-  letter-spacing: -0.02em;
-  color: var(--color-text);
-}
-.hero_text {
-  font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  color: var(--color-accent);
-}
-.hero_text_under {
-  font-weight: 400;
-  font-size: 14px;
-  color: var(--color-muted);
-}
-.hero_action {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-.hero_btn_book,
-.hero_btn_learn {
-  font-weight: 600;
-  font-size: 12px;
-  color: var(--color-text);
-}
 
-/* mobile img */
-
-.hero_section {
   min-height: calc(580px);
 
   background-image:
@@ -50,6 +14,66 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.hero_container {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  margin: 35px auto 24px;
+
+  text-align: center;
+}
+.hero_title {
+  display: flex;
+  flex-direction: row;
+
+  padding-bottom: 60px;
+  font-weight: 800;
+  font-size: 46px;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+.hero_text {
+  padding-bottom: 150px;
+
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+}
+.hero_text_under {
+  padding-bottom: 40px;
+
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--color-muted);
+}
+.hero_action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.hero_btn_book,
+.hero_btn_learn {
+  background: var(--color-accent);
+
+  border-radius: 4px;
+  padding: 12px 18px;
+  width: 354px;
+  height: 42px;
+
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--color-text);
+}
+.hero_btn_learn {
+  background-color: white;
+  color: black;
+}
+
+/* mobile img */
 
 /* Tablet */
 
@@ -68,6 +92,7 @@
 
 @media only screen and (min-width: 1280px) {
   .hero_section {
+    min-height: calc(100vh);
     background-image:
       linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
       image-set(
