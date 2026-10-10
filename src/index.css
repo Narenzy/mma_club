@@ -5,7 +5,8 @@
   --color-bg: #090909;
   --color-surface: #121212;
   --color-surface2: #191919;
-  --color-accent: #e31b23;
+  --color-accent-red: #c71f25d9;
+  --color-hover-red: #f8040c;
   --color-text: #fff;
   --color-muted: #a6a6a6;
   --color-border: #292929;
@@ -83,9 +84,9 @@ img {
 }
 
 /* Desktop */
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1280px) {
   .container {
     max-width: 1440px;
-    padding: 0 64px;
+    padding: 0 40px;
   }
 }

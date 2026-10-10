@@ -4,7 +4,6 @@ export default function Hero() {
   return (
     <section className={css.hero_section}>
       <div className={`container ${css.hero_container}`}>
-        <p className={css.hero_text}>DISCIPLINE. STRENGTH. COMMUNITY.</p>
         <h1 className={css.hero_title}>STRIKEBULL MMA CLUB</h1>
         <p className={css.hero_text_under}>
           More than a gym. A place to grow stronger, sharpen your skills, and
