@@ -1,8 +1,9 @@
 // import { useState } from "react";
 import Header from "../Header/Header";
 import Hero from "../Hero/Hero";
-import Footer from "../Footer/Footer";
+// import Footer from "../Footer/Footer";
 import "./App.css";
+import About from "../About/About";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -12,8 +13,9 @@ function App() {
       <Header></Header>
       <main>
         <Hero></Hero>
+        <About></About>
       </main>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </>
   );
 }

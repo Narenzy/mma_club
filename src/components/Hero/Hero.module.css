@@ -61,11 +61,14 @@
 }
 .hero_btn_book {
   background-color: var(--color-accent-red);
+
+  transition: background-color 250ms ease;
 }
 
 .hero_btn_learn {
   background-color: #969696eb;
   color: black;
+  transition: background-color 250ms ease;
 }
 
 .hero_btn_book:hover,

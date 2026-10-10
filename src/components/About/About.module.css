@@ -1,0 +1,69 @@
+.about_section {
+  display: flex;
+  align-items: center;
+
+  margin: 35px auto 24px;
+}
+
+.about_container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.about_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about_text {
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 120%;
+  letter-spacing: 0.08em;
+  color: var(--color-accent-red);
+}
+
+.about_title {
+  font-weight: 800;
+  font-size: 34px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.about_description {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  color: var(--color-muted);
+}
+
+.about_btn_learn {
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 120%;
+  color: var(--color-text);
+
+  border: 1px solid #4a4a4a;
+  border-radius: 4px;
+  padding: 12px 18px;
+  width: 150px;
+  height: auto;
+
+  transition:
+    background-color 250ms ease,
+    color 250ms ease;
+}
+.about_btn_learn:hover,
+.about_btn_learn:focus {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+.about_img {
+  display: block;
+}
