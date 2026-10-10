@@ -1,9 +1,0 @@
-<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<defs>
-<symbol id="icon-Burger" viewBox="0 0 32 32">
-<path fill="#fff" style="fill: var(--color1, #fff)" d="M5.714 8h20.571v2.286h-20.571v-2.286z"></path>
-<path fill="#fff" style="fill: var(--color1, #fff)" d="M5.714 14.857h20.571v2.286h-20.571v-2.286z"></path>
-<path fill="#fff" style="fill: var(--color1, #fff)" d="M5.714 21.714h20.571v2.286h-20.571v-2.286z"></path>
-</symbol>
-</defs>
-</svg>

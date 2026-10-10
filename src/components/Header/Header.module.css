@@ -1,71 +1,163 @@
 /* Mobile first */
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
   position: sticky;
   top: 0;
   z-index: 100;
 
-  padding: 14px 18px;
   width: 100%;
-}
-.nav {
-  display: none;
+  background-color: #000;
 }
 
-.header_link {
-}
-.burger_button {
+.header_container {
+  position: relative;
+
   display: flex;
-  background: transparent;
-}
-.burger_button_img {
-}
-.open {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
 
-  position: absolute;
-  top: 68px;
-  left: 0;
-
-  width: 100%;
-  padding: 24px;
-
-  background-color: #c61e1e;
+  min-height: 68px;
 }
+
+/* Logo */
+
 .logo {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
-.logo_img {
+
+.header_logo {
   display: block;
-  width: 100px;
-  height: auto;
+  width: 120px;
+  height: 50px;
+}
+
+/* Navigation */
+
+.nav {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 32px;
+
+  width: 100%;
+  min-height: 100dvh;
+  padding: 24px;
+
+  background-color: #000;
+
+  transform: translateX(100%);
+  transition: transform 450ms ease;
+}
+
+.open {
+  transform: translateX(0);
+}
+
+.header_link {
+  font-size: 28px;
+  font-weight: 700;
+
+  color: var(--color-text);
+  text-decoration: none;
+
+  transition: opacity 300ms ease;
+}
+
+.header_link:hover,
+.header_link:focus {
+  opacity: 0.7;
+}
+
+/* Burger */
+
+.burger_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  background: transparent;
+  color: var(--color-text);
+}
+
+.burger_button_img {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+/* Close button */
+
+.close_button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  padding: 0;
+
+  font-size: 32px;
+  line-height: 1;
+
+  color: #fff;
+  background: transparent;
 }
 
 /* Tablet */
+
 @media only screen and (min-width: 768px) {
   .nav {
-    display: flex;
+    position: static;
+
     flex-direction: row;
+    align-items: center;
+
     gap: 32px;
 
-    position: static;
     width: auto;
+    min-height: auto;
     padding: 0;
+
     background: transparent;
+
+    transform: none;
+    transition: none;
   }
 
-  .burger_button {
+  .header_link {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .burger_button,
+  .close_button {
     display: none;
   }
 }
 
-/* Decktop */
+/* Desktop */
+
 @media only screen and (min-width: 1280px) {
+  .nav {
+    gap: 40px;
+  }
+
+  .header_link {
+    font-size: 18px;
+  }
 }
