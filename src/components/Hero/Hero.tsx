@@ -10,7 +10,7 @@ export default function Hero() {
           train with purpose.
         </p>
         <div className={css.hero_action}>
-          <a href="#contact" className={css.hero_btn_book}>
+          <a href="#contacts" className={css.hero_btn_book}>
             BOOK A FREE TRIAL
           </a>
 
