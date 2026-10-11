@@ -10,6 +10,7 @@
   --color-text: #fff;
   --color-muted: #a6a6a6;
   --color-border: #292929;
+  --font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
 *,
@@ -31,6 +32,10 @@ body {
 
   background-color: #111;
   color: #fff;
+  line-height: 120%;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.02em;
 }
 
 h1,
@@ -58,6 +63,12 @@ a {
 button {
   cursor: pointer;
   border: none;
+  font: inherit;
+}
+
+select,
+textarea,
+input {
   font: inherit;
 }
 

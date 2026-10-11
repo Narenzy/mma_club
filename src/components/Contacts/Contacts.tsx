@@ -33,21 +33,33 @@ export default function Contacts() {
         </div>
         <form className={css.contacts_form}>
           <div className={css.form_field}>
-            <label htmlFor="name">Name</label>
-
+            <label htmlFor="firstName">Vorname</label>
             <input
-              id="name"
-              name="name"
+              className={css.form_input}
+              id="firstName"
+              name="firstName"
               type="text"
-              autoComplete="name"
+              autoComplete="given-name"
+              required
+            />
+          </div>
+
+          <div className={css.form_field}>
+            <label htmlFor="lastName">Nachname</label>
+            <input
+              className={css.form_input}
+              id="lastName"
+              name="lastName"
+              type="text"
+              autoComplete="family-name"
               required
             />
           </div>
 
           <div className={css.form_field}>
             <label htmlFor="email">Email</label>
-
             <input
+              className={css.form_input}
               id="email"
               name="email"
               type="email"
@@ -57,14 +69,20 @@ export default function Contacts() {
           </div>
 
           <div className={css.form_field}>
-            <label htmlFor="message">Message</label>
-
-            <textarea id="message" name="message" rows={6} required />
+            <label htmlFor="message">Nachricht</label>
+            <textarea
+              className={css.form_textarea}
+              id="message"
+              name="message"
+              rows={8}
+            />
           </div>
 
-          <button className={css.form_button} type="submit">
-            SEND MESSAGE
-          </button>
+          <div className={css.form_actions}>
+            <button className={css.form_button} type="submit">
+              NACHRICHT SENDEN
+            </button>
+          </div>
         </form>
       </div>
     </section>
