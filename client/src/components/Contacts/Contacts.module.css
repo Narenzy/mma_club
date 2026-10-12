@@ -1,7 +1,4 @@
 .contacts_section {
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
 }
 
 .contacts_container {
@@ -24,7 +21,7 @@
 
 .contacts_label {
   font-weight: 600;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.08em;
   color: var(--color-accent-red);
 }
@@ -111,7 +108,7 @@
 
 .form_button {
   font-weight: 600;
-  font-size: 12px;
+  font-size: 14px;
 
   border-radius: 4px;
   padding: 12px 18px;
@@ -125,8 +122,13 @@
 }
 
 .form_input:focus,
-.form_textarea:focus {
+.form_textarea:focus,
+.form_input:-webkit-autofill:focus {
   outline: none;
   border-color: var(--color-accent-red);
-  box-shadow: 0 0 0 2px rgba(199, 31, 37, 0.2);
+}
+
+.form_input:-webkit-autofill {
+  -webkit-text-fill-color: var(--color-text);
+  -webkit-box-shadow: 0 0 0 1000px #181818 inset;
 }

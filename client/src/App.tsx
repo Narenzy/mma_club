@@ -1,10 +1,9 @@
-// import { useState } from "react";
-import Header from "../Header/Header";
-import Hero from "../Hero/Hero";
-import Contacts from "../Contacts/Contacts";
+import Header from "./components/Header/Header.tsx";
+import Hero from "./components/Hero/Hero.tsx";
+import Contacts from "./components/Contacts/Contacts.tsx";
 // import Footer from "../Footer/Footer";
-import "./App.css";
-import About from "../About/About";
+
+import About from "./components/About/About.tsx";
 
 function App() {
   // const [count, setCount] = useState(0);
