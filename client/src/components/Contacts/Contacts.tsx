@@ -40,6 +40,9 @@ export default function Contacts() {
               name="firstName"
               type="text"
               autoComplete="given-name"
+              minLength={2}
+              maxLength={50}
+              pattern="[\p{L}\p{M}'’ \-]{2,50}"
               required
             />
           </div>
@@ -52,6 +55,9 @@ export default function Contacts() {
               name="lastName"
               type="text"
               autoComplete="family-name"
+              minLength={2}
+              maxLength={50}
+              pattern="[\p{L}\p{M}'’ \-]{2,50}"
               required
             />
           </div>
@@ -64,6 +70,7 @@ export default function Contacts() {
               name="email"
               type="email"
               autoComplete="email"
+              maxLength={254}
               required
             />
           </div>
@@ -74,6 +81,8 @@ export default function Contacts() {
               className={css.form_textarea}
               id="message"
               name="message"
+              minLength={10}
+              maxLength={1000}
               rows={8}
             />
           </div>
