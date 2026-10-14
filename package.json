@@ -1,9 +1,16 @@
 {
   "name": "mma-club",
   "private": true,
+  "workspaces": [
+    "apps/web",
+    "apps/api"
+  ],
   "scripts": {
-    "dev": "npm --prefix client run dev",
-    "client": "npm --prefix client run dev",
-    "build": "npm --prefix client run build"
+    "dev": "npm run dev --workspace=@mma-club/web",
+    "build": "npm run build --workspace=@mma-club/web",
+    "lint": "npm run lint --workspace=@mma-club/web",
+    "dev:web": "npm run dev --workspace=@mma-club/web",
+    "build:web": "npm run build --workspace=@mma-club/web",
+    "lint:web": "npm run lint --workspace=@mma-club/web"
   }
 }
