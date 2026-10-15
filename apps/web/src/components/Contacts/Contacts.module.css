@@ -121,6 +121,12 @@
   padding-top: 15px;
 }
 
+.form_error {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #ff4d4f;
+}
+
 .form_input:focus,
 .form_textarea:focus,
 .form_input:-webkit-autofill:focus {

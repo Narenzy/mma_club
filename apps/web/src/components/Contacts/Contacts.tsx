@@ -1,6 +1,30 @@
 import css from "./Contacts.module.css";
+import { useForm } from "react-hook-form";
+import { contactSchema } from "../../validation/contactSchema";
+import { yupResolver } from "@hookform/resolvers/yup";
+import type { InferType } from "yup";
+
+type ContactFormData = InferType<typeof contactSchema>;
 
 export default function Contacts() {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactFormData>({ resolver: yupResolver(contactSchema) });
+
+  //after  add backand / need real data use + reset() for form!!
+  //alsom {isSuccess && (
+  //<p className={css.success_message}>
+  //Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.
+  //</p>
+  //)}
+  const onSubmit = (data: ContactFormData) => {
+    console.log(data);
+    reset();
+  };
+
   return (
     <section className={css.contacts_section} id="contacts">
       <div className={`container ${css.contacts_container}`}>
@@ -10,7 +34,7 @@ export default function Contacts() {
             <h2 className={css.contacts_title}>CONTACT US</h2>
             <address className={css.contacts_address}>
               <a
-                href="https://www.google.com/maps/search/?api=1&query=123+Fight+Street+Zurich+Switzerland"
+                href="https://www.google.com/maps/search/?api=1&query=Masanserstrasse+205+7000+Chur"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -31,20 +55,23 @@ export default function Contacts() {
             />
           </div>
         </div>
-        <form className={css.contacts_form}>
+        <form
+          className={css.contacts_form}
+          onSubmit={handleSubmit(onSubmit)}
+          noValidate
+        >
           <div className={css.form_field}>
             <label htmlFor="firstName">Vorname</label>
             <input
               className={css.form_input}
               id="firstName"
-              name="firstName"
               type="text"
               autoComplete="given-name"
-              minLength={2}
-              maxLength={50}
-              pattern="[\p{L}\p{M}'’ \-]{2,50}"
-              required
+              {...register("firstName")}
             />
+            {errors.firstName && (
+              <p className={css.form_error}>{errors.firstName.message}</p>
+            )}
           </div>
 
           <div className={css.form_field}>
@@ -52,14 +79,13 @@ export default function Contacts() {
             <input
               className={css.form_input}
               id="lastName"
-              name="lastName"
               type="text"
               autoComplete="family-name"
-              minLength={2}
-              maxLength={50}
-              pattern="[\p{L}\p{M}'’ \-]{2,50}"
-              required
+              {...register("lastName")}
             />
+            {errors.lastName && (
+              <p className={css.form_error}>{errors.lastName.message}</p>
+            )}
           </div>
 
           <div className={css.form_field}>
@@ -67,12 +93,13 @@ export default function Contacts() {
             <input
               className={css.form_input}
               id="email"
-              name="email"
               type="email"
               autoComplete="email"
-              maxLength={254}
-              required
+              {...register("email")}
             />
+            {errors.email && (
+              <p className={css.form_error}>{errors.email.message}</p>
+            )}
           </div>
 
           <div className={css.form_field}>
@@ -80,11 +107,12 @@ export default function Contacts() {
             <textarea
               className={css.form_textarea}
               id="message"
-              name="message"
-              minLength={10}
-              maxLength={1000}
               rows={8}
+              {...register("message")}
             />
+            {errors.message && (
+              <p className={css.form_error}>{errors.message.message}</p>
+            )}
           </div>
 
           <div className={css.form_actions}>
