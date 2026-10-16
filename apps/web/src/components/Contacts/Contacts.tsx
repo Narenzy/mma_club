@@ -2,11 +2,21 @@ import css from "./Contacts.module.css";
 import { useForm } from "react-hook-form";
 import { contactSchema } from "../../validation/contactSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { pricingPlans } from "../../data/pricing";
 import type { InferType } from "yup";
+import type { Dispatch, SetStateAction } from "react";
 
 type ContactFormData = InferType<typeof contactSchema>;
 
-export default function Contacts() {
+type ContactsProps = {
+  selectedPlanId: string | null;
+  setSelectedPlanId: Dispatch<SetStateAction<string | null>>;
+};
+
+export default function Contacts({
+  selectedPlanId,
+  setSelectedPlanId,
+}: ContactsProps) {
   const {
     register,
     handleSubmit,
@@ -14,14 +24,19 @@ export default function Contacts() {
     formState: { errors },
   } = useForm<ContactFormData>({ resolver: yupResolver(contactSchema) });
 
-  //after  add backand / need real data use + reset() for form!!
-  //alsom {isSuccess && (
-  //<p className={css.success_message}>
-  //Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.
-  //</p>
-  //)}
+  //TODO: send payload to backend and reset form only after successful response
+
+  const selectedPlan = pricingPlans.find((plan) => plan.id === selectedPlanId);
+
   const onSubmit = (data: ContactFormData) => {
-    console.log(data);
+    const payload = {
+      ...data,
+      planId: selectedPlanId,
+    };
+
+    console.log(payload); //hier delete log and add real backand data!!!
+    setSelectedPlanId(null);
+
     reset();
   };
 
@@ -55,6 +70,15 @@ export default function Contacts() {
             />
           </div>
         </div>
+        {selectedPlan && (
+          <div className={css.selected_plan}>
+            <p className={css.selected_plan_label}>Ausgewählter Tarif</p>
+
+            <p className={css.selected_plan_value}>
+              {selectedPlan.title} — {selectedPlan.price}
+            </p>
+          </div>
+        )}
         <form
           className={css.contacts_form}
           onSubmit={handleSubmit(onSubmit)}
