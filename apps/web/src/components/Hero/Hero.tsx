@@ -2,7 +2,7 @@ import css from "./Hero.module.css";
 
 export default function Hero() {
   return (
-    <section className={css.hero_section}>
+    <section className={css.hero_section} id="hero">
       <div className={`container ${css.hero_container}`}>
         <h1 className={css.hero_title}>STRIKEBULL MMA CLUB</h1>
         <p className={css.hero_text_under}>

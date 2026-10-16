@@ -5,7 +5,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className={css.header}>
+    <header className={css.header} id="home">
       <div className={`container ${css.header_container}`}>
         <a href="#home" className={css.logo}>
           <img
@@ -31,7 +31,7 @@ export default function Header() {
             </button>
           )}
 
-          <a href="#home" className={css.header_link}>
+          <a href="#hero" className={css.header_link}>
             Home
           </a>
 
@@ -39,11 +39,11 @@ export default function Header() {
             About
           </a>
 
-          <a href="#classes" className={css.header_link}>
+          <a href="#programs" className={css.header_link}>
             Classes
           </a>
 
-          <a href="#contact" className={css.header_link}>
+          <a href="#contacts" className={css.header_link}>
             Contact
           </a>
         </nav>
