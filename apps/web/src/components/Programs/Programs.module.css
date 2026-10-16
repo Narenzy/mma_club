@@ -23,7 +23,6 @@
 
   font-weight: 800;
   font-size: 34px;
-  line-height: 120%;
 }
 
 .classes_list {
@@ -60,12 +59,10 @@
 
   font-weight: 800;
   font-size: 18px;
-  line-height: 120%;
 }
 
 .classes_description {
   font-size: 12px;
-  line-height: 120%;
   color: var(--color-muted);
 }
 

@@ -19,8 +19,7 @@
 
 .about_text {
   font-weight: 600;
-  font-size: 11px;
-  line-height: 120%;
+  font-size: 12px;
   letter-spacing: 0.08em;
   color: var(--color-accent-red);
 }
@@ -28,15 +27,9 @@
 .about_title {
   font-weight: 800;
   font-size: 34px;
-  line-height: 120%;
-  letter-spacing: -0.02em;
-  color: var(--color-text);
 }
 
 .about_description {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 120%;
   color: var(--color-muted);
 }
 
@@ -44,8 +37,6 @@
   text-align: center;
   font-weight: 600;
   font-size: 12px;
-  line-height: 120%;
-  color: var(--color-text);
 
   border: 1px solid #4a4a4a;
   border-radius: 4px;

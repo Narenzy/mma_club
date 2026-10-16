@@ -27,16 +27,11 @@
   padding: 155px 0 60px;
   font-weight: 800;
   font-size: 46px;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  color: var(--color-text);
 }
 
 .hero_text_under {
   padding-bottom: 40px;
 
-  font-weight: 400;
-  font-size: 14px;
   color: var(--color-muted);
 }
 .hero_action {
@@ -57,7 +52,6 @@
 
   font-weight: 600;
   font-size: 12px;
-  color: var(--color-text);
 }
 .hero_btn_book {
   background-color: var(--color-accent-red);

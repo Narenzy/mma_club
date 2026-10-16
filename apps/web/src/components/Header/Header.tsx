@@ -39,12 +39,15 @@ export default function Header() {
             About
           </a>
 
-          <a href="#programs" className={css.header_link}>
+          <a href="#classes" className={css.header_link}>
             Classes
           </a>
 
           <a href="#contacts" className={css.header_link}>
             Contact
+          </a>
+          <a href="#programs" className={css.header_link}>
+            Programs
           </a>
         </nav>
 
