@@ -18,18 +18,24 @@ ol {
 a {
   color: currentColor;
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 button {
   cursor: pointer;
   border: none;
+  background: none;
+  appearance: none;
+  -webkit-appearance: none;
   font: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 select,
 textarea,
 input {
   font: inherit;
+  color: inherit;
 }
 
 img {
