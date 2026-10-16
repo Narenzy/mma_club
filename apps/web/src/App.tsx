@@ -7,6 +7,7 @@ import Programs from "./components/Programs/Programs.tsx";
 import About from "./components/About/About.tsx";
 import Taem from "./components/Team/Team.tsx";
 import Benefits from "./components/Benefits/Benefits.tsx";
+import Classes from "./components/Classes/Classes.tsx";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -20,6 +21,7 @@ function App() {
         <Programs></Programs>
         <Benefits></Benefits>
         <Taem></Taem>
+        <Classes></Classes>
         <Contacts></Contacts>
       </main>
       {/* <Footer></Footer> */}

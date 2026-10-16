@@ -1,8 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import css from "./Header.module.css";
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
+  const handleNavClick = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
     <header className={css.header} id="home">
@@ -17,48 +28,60 @@ export default function Header() {
 
         <nav
           id="main-navigation"
-          className={`${css.nav} ${isOpen ? css.open : ""}`}
+          className={`${css.nav} ${isMenuOpen ? css.open : ""}`}
           aria-label="Main navigation"
         >
-          {isOpen && (
+          {isMenuOpen && (
             <button
               type="button"
               className={css.close_button}
               aria-label="Close navigation"
-              onClick={() => setIsOpen(false)}
+              onClick={() => setIsMenuOpen(false)}
             >
               ✕
             </button>
           )}
 
-          <a href="#hero" className={css.header_link}>
+          <a href="#hero" className={css.header_link} onClick={handleNavClick}>
             Home
           </a>
 
-          <a href="#about" className={css.header_link}>
+          <a href="#about" className={css.header_link} onClick={handleNavClick}>
             About
           </a>
 
-          <a href="#classes" className={css.header_link}>
+          <a
+            href="#classes"
+            className={css.header_link}
+            onClick={handleNavClick}
+          >
             Classes
           </a>
 
-          <a href="#contacts" className={css.header_link}>
+          <a
+            href="#contacts"
+            className={css.header_link}
+            onClick={handleNavClick}
+          >
             Contact
           </a>
-          <a href="#programs" className={css.header_link}>
+          <a
+            href="#programs"
+            className={css.header_link}
+            onClick={handleNavClick}
+          >
             Programs
           </a>
         </nav>
 
-        {!isOpen && (
+        {!isMenuOpen && (
           <button
             type="button"
             className={css.burger_button}
             aria-label="Open navigation"
-            aria-expanded={isOpen}
+            aria-expanded={isMenuOpen}
             aria-controls="main-navigation"
-            onClick={() => setIsOpen(true)}
+            onClick={() => setIsMenuOpen(true)}
           >
             <svg className={css.burger_button_img} width="32" height="32">
               <use href="/svg/sprite.svg#icon-burger"></use>
