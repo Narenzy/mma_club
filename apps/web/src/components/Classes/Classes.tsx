@@ -2,6 +2,7 @@ import css from "./Classes.module.css";
 import { useState } from "react";
 import type { Category } from "../../types/classes";
 import { categories, classesShedule } from "../../data/classes";
+import { motion } from "motion/react";
 
 export default function Classes() {
   const [activeCategory, setActiveCategory] = useState<Category>("Alle");
@@ -12,7 +13,17 @@ export default function Classes() {
       : classesShedule.filter((item) => item.discipline === activeCategory);
 
   return (
-    <section className={css.classes_section} id="classes">
+    <motion.section
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 1,
+        ease: "easeInOut",
+      }}
+      viewport={{ once: false }}
+      className={css.classes_section}
+      id="classes"
+    >
       <div className={`container ${css.classes_container}`}>
         <div className={css.classes_text_container}>
           <p className={css.classes_label}>DEIN TRAINING PLANEN</p>
@@ -52,6 +63,6 @@ export default function Classes() {
           </ul>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

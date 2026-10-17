@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import css from "./Header.module.css";
+import { motion } from "motion/react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,9 +27,14 @@ export default function Header() {
   };
 
   return (
-    <header
-      data-aos="fade-down"
-      data-aos-duration="1400"
+    <motion.header
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 1,
+        ease: "easeInOut",
+      }}
+      viewport={{ once: true }}
       className={css.header}
       id="home"
     >
@@ -109,6 +115,6 @@ export default function Header() {
           </button>
         )}
       </div>
-    </header>
+    </motion.header>
   );
 }

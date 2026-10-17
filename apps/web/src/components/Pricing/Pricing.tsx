@@ -1,6 +1,7 @@
 import css from "./Pricing.module.css";
 import { pricingPlans } from "../../data/pricing";
 import type { Dispatch, SetStateAction } from "react";
+import { motion } from "motion/react";
 
 type PricingProps = {
   selectedPlanId: string | null;
@@ -11,7 +12,17 @@ export default function Pricing({
   setSelectedPlanId,
 }: PricingProps) {
   return (
-    <section className={css.pricing_section} id="pricing">
+    <motion.section
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 1,
+        ease: "easeInOut",
+      }}
+      viewport={{ once: false }}
+      className={css.pricing_section}
+      id="pricing"
+    >
       <div className={`container ${css.pricing_container}`}>
         <div className={css.pricing_text_container}>
           <p className={css.pricing_label}>MITGLIEDSCHAFT</p>
@@ -73,6 +84,6 @@ export default function Pricing({
           })}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

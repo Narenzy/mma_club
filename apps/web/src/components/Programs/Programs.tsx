@@ -1,8 +1,19 @@
 import css from "./Programs.module.css";
+import { motion } from "motion/react";
 
 export default function Programs() {
   return (
-    <section className={css.section_programs} id="programs">
+    <motion.section
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 1,
+        ease: "easeInOut",
+      }}
+      viewport={{ once: false }}
+      className={css.section_programs}
+      id="programs"
+    >
       <div className={`container ${css.programs_container}`}>
         <p className={css.programs_label}>TRAINING BEI STRIKEBULL</p>
         <h2 className={css.programs_title}>MMA TRAINING</h2>
@@ -24,6 +35,6 @@ export default function Programs() {
           </ul>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

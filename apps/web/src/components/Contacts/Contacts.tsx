@@ -5,6 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { pricingPlans } from "../../data/pricing";
 import type { InferType } from "yup";
 import type { Dispatch, SetStateAction } from "react";
+import { motion } from "motion/react";
 
 type ContactFormData = InferType<typeof contactSchema>;
 
@@ -41,7 +42,17 @@ export default function Contacts({
   };
 
   return (
-    <section className={css.contacts_section} id="contacts">
+    <motion.section
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 1,
+        ease: "easeInOut",
+      }}
+      viewport={{ once: false }}
+      className={css.contacts_section}
+      id="contacts"
+    >
       <div className={`container ${css.contacts_container}`}>
         <div className={css.contacts_top}>
           <div className={css.contacts_info}>
@@ -146,6 +157,6 @@ export default function Contacts({
           </div>
         </form>
       </div>
-    </section>
+    </motion.section>
   );
 }

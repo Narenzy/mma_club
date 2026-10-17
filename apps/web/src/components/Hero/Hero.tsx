@@ -1,4 +1,5 @@
 import css from "./Hero.module.css";
+import { motion } from "motion/react";
 
 import type { Dispatch, SetStateAction } from "react";
 
@@ -11,9 +12,14 @@ export default function Hero({ setSelectedPlanId }: HeroProps) {
     setSelectedPlanId(null);
   };
   return (
-    <section
-      data-aos="fade-down"
-      data-aos-duration="2000"
+    <motion.section
+      initial={{ opacity: 0, y: -50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 1,
+        ease: "easeInOut",
+      }}
+      viewport={{ once: true }}
       className={css.hero_section}
       id="hero"
     >
@@ -37,6 +43,6 @@ export default function Hero({ setSelectedPlanId }: HeroProps) {
           </a>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

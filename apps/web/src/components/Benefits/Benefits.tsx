@@ -1,4 +1,5 @@
 import css from "./Benefits.module.css";
+import { motion } from "motion/react";
 
 const benefits = [
   {
@@ -21,7 +22,17 @@ const benefits = [
 
 export default function Benefits() {
   return (
-    <section className={css.benefits_section} id="benefits">
+    <motion.section
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 1,
+        ease: "easeInOut",
+      }}
+      viewport={{ once: false }}
+      className={css.benefits_section}
+      id="benefits"
+    >
       <div className={`container ${css.benefits_container}`}>
         <p className={css.benefits_label}>UNSERE VORTEILE</p>
 
@@ -63,6 +74,6 @@ export default function Benefits() {
           ))}
         </ul>
       </div>
-    </section>
+    </motion.section>
   );
 }
