@@ -14,8 +14,8 @@ export default function Pricing({
     <section className={css.pricing_section} id="pricing">
       <div className={`container ${css.pricing_container}`}>
         <div className={css.pricing_text_container}>
-          <p className={css.pricing_label}>MEMBERSHIP</p>
-          <h2 className={css.pricing_title}>PRICING PLANS</h2>
+          <p className={css.pricing_label}>MITGLIEDSCHAFT</p>
+          <h2 className={css.pricing_title}>TARIFE</h2>
         </div>
 
         <div className={css.pricing_plans_container}>

@@ -1,6 +1,6 @@
-export type Category = "All" | "MMA" | "BJJ" | "Boxing" | "Muay Thai";
+export type Category = "Alle" | "MMA";
 
-export type Discipline = "MMA" | "BJJ" | "Boxing" | "Muay Thai" | "Open Mat";
+export type Discipline = "MMA" | "Open Mat";
 
 export interface ClassItems {
   day: string;

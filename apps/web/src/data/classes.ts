@@ -1,37 +1,21 @@
 import type { Category, ClassItems } from "../types/classes";
 
-export const categories: Category[] = [
-  "All",
-  "MMA",
-  "BJJ",
-  "Boxing",
-  "Muay Thai",
-];
+export const categories: Category[] = ["Alle", "MMA"];
 
 export const classesShedule: ClassItems[] = [
   {
-    day: "Monday",
-    time: "08:00",
+    day: "Dienstag",
+    time: "19:00",
     discipline: "MMA",
   },
   {
-    day: "Tuesday",
+    day: "Donnerstag",
     time: "19:00",
-    discipline: "Boxing",
+    discipline: "MMA",
   },
   {
-    day: "Wednesday",
-    time: "18:30",
-    discipline: "BJJ",
-  },
-  {
-    day: "Thursday",
-    time: "19:00",
-    discipline: "Muay Thai",
-  },
-  {
-    day: "Friday",
-    time: "19:30",
+    day: "Samstag",
+    time: "10:00",
     discipline: "Open Mat",
   },
 ];

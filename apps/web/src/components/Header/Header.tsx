@@ -53,11 +53,11 @@ export default function Header() {
           )}
 
           <a href="#hero" className={css.header_link} onClick={handleNavClick}>
-            Home
+            Startseite
           </a>
 
           <a href="#about" className={css.header_link} onClick={handleNavClick}>
-            About
+            Über uns
           </a>
 
           <a
@@ -65,7 +65,7 @@ export default function Header() {
             className={css.header_link}
             onClick={handleNavClick}
           >
-            Classes
+            Trainingsplan
           </a>
 
           <a
@@ -73,14 +73,14 @@ export default function Header() {
             className={css.header_link}
             onClick={handleNavClick}
           >
-            Contact
+            Kontakt
           </a>
           <a
             href="#programs"
             className={css.header_link}
             onClick={handleNavClick}
           >
-            Programs
+            Programme
           </a>
         </nav>
 

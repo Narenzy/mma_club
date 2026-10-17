@@ -15,8 +15,8 @@ export default function Hero({ setSelectedPlanId }: HeroProps) {
       <div className={`container ${css.hero_container}`}>
         <h1 className={css.hero_title}>STRIKEBULL MMA CLUB</h1>
         <p className={css.hero_text_under}>
-          More than a gym. A place to grow stronger, sharpen your skills, and
-          train with purpose.
+          Mehr als nur ein Fitnessstudio. Ein Ort, an dem du stärker wirst,
+          deine Fähigkeiten verbesserst und mit einem klaren Ziel trainierst.
         </p>
         <div className={css.hero_action}>
           <a
@@ -24,11 +24,11 @@ export default function Hero({ setSelectedPlanId }: HeroProps) {
             className={css.hero_btn_book}
             onClick={handleFreeTrialClick}
           >
-            BOOK A FREE TRIAL
+            GRATIS PROBETRAINING BUCHEN
           </a>
 
           <a href="#about" className={css.hero_btn_learn}>
-            LEARN MORE
+            MEHR ERFAHREN
           </a>
         </div>
       </div>

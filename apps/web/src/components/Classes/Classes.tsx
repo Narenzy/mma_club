@@ -4,10 +4,10 @@ import type { Category } from "../../types/classes";
 import { categories, classesShedule } from "../../data/classes";
 
 export default function Classes() {
-  const [activeCategory, setActiveCategory] = useState<Category>("All");
+  const [activeCategory, setActiveCategory] = useState<Category>("Alle");
 
   const filteredClasses =
-    activeCategory === "All"
+    activeCategory === "Alle"
       ? classesShedule
       : classesShedule.filter((item) => item.discipline === activeCategory);
 
@@ -15,9 +15,9 @@ export default function Classes() {
     <section className={css.classes_section} id="classes">
       <div className={`container ${css.classes_container}`}>
         <div className={css.classes_text_container}>
-          <p className={css.classes_label}>PLAN YOUR TRAINING</p>
+          <p className={css.classes_label}>DEIN TRAINING PLANEN</p>
 
-          <h2 className={css.classes_title}>CLASS SCHEDULE</h2>
+          <h2 className={css.classes_title}>TRAININGSPLAN</h2>
 
           <div className={css.classes_filter}>
             {categories.map((category) => (

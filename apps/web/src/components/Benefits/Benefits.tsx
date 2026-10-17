@@ -2,20 +2,20 @@ import css from "./Benefits.module.css";
 
 const benefits = [
   {
-    title: "PRO COACHES",
-    text: "Experienced trainers",
+    title: "PROFESSIONELLE TRAINER",
+    text: "Erfahrene Coaches",
   },
   {
-    title: "MODERN FACILITIES",
-    text: "Quality equipment",
+    title: "MODERNE AUSSTATTUNG",
+    text: "Hochwertige Trainingsgeräte",
   },
   {
     title: "COMMUNITY",
-    text: "Train together",
+    text: "Gemeinsam trainieren",
   },
   {
-    title: "REAL RESULTS",
-    text: "Build confidence",
+    title: "ECHTE ERGEBNISSE",
+    text: "Selbstvertrauen aufbauen",
   },
 ];
 
@@ -23,13 +23,13 @@ export default function Benefits() {
   return (
     <section className={css.benefits_section} id="benefits">
       <div className={`container ${css.benefits_container}`}>
-        <p className={css.benefits_label}>OUR ADVANTAGES</p>
+        <p className={css.benefits_label}>UNSERE VORTEILE</p>
 
-        <h2 className={css.benefits_title}>WHY CHOOSE STRIKEBULL</h2>
+        <h2 className={css.benefits_title}>WARUM STRIKEBULL?</h2>
 
         <p className={css.benefits_description}>
-          Modern coaching, quality facilities and a community that pushes you
-          forward.
+          Modernes Coaching, hochwertige Ausstattung und eine Community, die
+          dich motiviert und voranbringt.
         </p>
 
         <ul className={css.benefits_list}>

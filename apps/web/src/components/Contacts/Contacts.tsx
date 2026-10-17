@@ -45,8 +45,8 @@ export default function Contacts({
       <div className={`container ${css.contacts_container}`}>
         <div className={css.contacts_top}>
           <div className={css.contacts_info}>
-            <p className={css.contacts_label}>GET IN TOUCH</p>
-            <h2 className={css.contacts_title}>CONTACT US</h2>
+            <p className={css.contacts_label}>KONTAKTIERE UNS</p>
+            <h2 className={css.contacts_title}>KONTAKT</h2>
             <address className={css.contacts_address}>
               <a
                 href="https://www.google.com/maps/search/?api=1&query=Masanserstrasse+205+7000+Chur"
@@ -66,7 +66,7 @@ export default function Contacts({
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
-              title="Strikebull MMA Club location"
+              title="Standort des Strikebull MMA Clubs"
             />
           </div>
         </div>
@@ -113,7 +113,7 @@ export default function Contacts({
           </div>
 
           <div className={css.form_field}>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">E-Mail</label>
             <input
               className={css.form_input}
               id="email"
