@@ -26,7 +26,12 @@ export default function Header() {
   };
 
   return (
-    <header className={css.header} id="home">
+    <header
+      data-aos="fade-down"
+      data-aos-duration="1400"
+      className={css.header}
+      id="home"
+    >
       <div className={`container ${css.header_container}`}>
         <a href="#hero" className={css.logo} onClick={handleNavClick}>
           <img
