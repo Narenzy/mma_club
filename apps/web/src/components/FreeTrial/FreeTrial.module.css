@@ -1,8 +1,12 @@
 /* Mobile */
 
+/* Free trial section */
+
 .freetrial_section {
   margin: 35px auto 24px;
 }
+
+/* Free trial container */
 
 .freetrial_container {
   display: flex;
@@ -10,11 +14,13 @@
   gap: 20px;
 }
 
+/* Free trial content */
+
 .freetrial_label {
   font-weight: 600;
   font-size: 12px;
-
   letter-spacing: 0.08em;
+
   color: var(--color-accent-red);
 }
 
@@ -31,65 +37,56 @@
   color: var(--color-muted);
 }
 
+/* Free trial button */
+
 .freetrial_btn {
-  border-radius: 4px;
+  width: 100%;
+  height: auto;
   padding: 12px 18px;
-  width: 354px;
-  height: 42px;
+
+  border-radius: 4px;
 
   font-weight: 600;
   font-size: 12px;
-  color: var(--color-text);
 
-  transition: background-color 250ms ease;
+  color: var(--color-text);
   background: var(--color-accent-red);
+
+  cursor: pointer;
+
+  transition:
+    background-color 250ms ease,
+    transform 120ms ease;
 }
 
-.freetrial_btn:hover,
-.freetrial_btn:focus {
-  background: var(--color-hover);
+/* Hover */
+
+@media (hover: hover) {
+  .freetrial_btn:hover {
+    background-color: var(--color-hover-red);
+  }
+}
+
+/* Focus */
+
+.freetrial_btn:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
+}
+
+/* Active */
+
+.freetrial_btn:active {
+  background-color: var(--color-hover-red);
+  transform: scale(0.98);
 }
 
 /* Tablet */
 
 @media screen and (min-width: 768px) {
-  .freetrial_section {
-  }
-
-  .freetrial_container {
-  }
-
-  .freetrial_label {
-  }
-
-  .freetrial_title {
-  }
-
-  .freetrial_description {
-  }
-
-  .freetrial_btn {
-  }
 }
 
 /* Desktop */
 
 @media screen and (min-width: 1280px) {
-  .freetrial_section {
-  }
-
-  .freetrial_container {
-  }
-
-  .freetrial_label {
-  }
-
-  .freetrial_title {
-  }
-
-  .freetrial_description {
-  }
-
-  .freetrial_btn {
-  }
 }

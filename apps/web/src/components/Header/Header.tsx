@@ -4,10 +4,20 @@ import css from "./Header.module.css";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+    const mobileMedia = window.matchMedia("(max-width: 767px)");
+
+    const updateBodyScroll = () => {
+      document.body.style.overflow =
+        isMenuOpen && mobileMedia.matches ? "hidden" : "";
+    };
+
+    updateBodyScroll();
+
+    mobileMedia.addEventListener("change", updateBodyScroll);
 
     return () => {
       document.body.style.overflow = "";
+      mobileMedia.removeEventListener("change", updateBodyScroll);
     };
   }, [isMenuOpen]);
 
@@ -18,7 +28,7 @@ export default function Header() {
   return (
     <header className={css.header} id="home">
       <div className={`container ${css.header_container}`}>
-        <a href="#home" className={css.logo}>
+        <a href="#hero" className={css.logo} onClick={handleNavClick}>
           <img
             src="/svg/bull-logo.svg"
             alt="Strikebull MMA Club"
@@ -83,7 +93,12 @@ export default function Header() {
             aria-controls="main-navigation"
             onClick={() => setIsMenuOpen(true)}
           >
-            <svg className={css.burger_button_img} width="32" height="32">
+            <svg
+              className={css.burger_button_img}
+              width="32"
+              height="32"
+              aria-hidden="true"
+            >
               <use href="/svg/sprite.svg#icon-burger"></use>
             </svg>
           </button>

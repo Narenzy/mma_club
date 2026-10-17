@@ -1,34 +1,47 @@
 /* Mobile */
 
+/* Classes section */
+
 .classes_section {
   margin: 35px auto 24px;
 }
+
+/* Classes container */
 
 .classes_container {
   display: flex;
   flex-direction: column;
 }
 
+/* Classes content */
+
 .classes_text_container {
   display: flex;
   flex-direction: column;
   gap: 20px;
+
   padding-bottom: 20px;
 }
 
 .classes_label {
+  max-width: 120px;
+
   font-weight: 600;
   font-size: 12px;
   letter-spacing: 0.08em;
-  color: var(--color-accent-red);
 
-  max-width: 120px;
+  color: var(--color-accent-red);
 }
 
 .classes_title {
   font-weight: 800;
   font-size: 34px;
 }
+
+.classes_info_container {
+}
+
+/* Classes filter */
 
 .classes_filter {
   display: flex;
@@ -37,22 +50,42 @@
 }
 
 .classes_btn {
-  border-radius: 3px;
-  padding: 8px 12px;
   width: auto;
-  color: var(--color-text);
+  padding: 8px 12px;
 
+  border-radius: 3px;
+
+  color: var(--color-text);
   background: var(--color-surface2);
+
+  cursor: pointer;
+
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
 }
 
 .classes_btn_active {
-  border-radius: 3px;
   color: var(--color-text);
   background: var(--color-accent-red);
 }
 
-.classes_info_container {
+/* Hover */
+
+@media (hover: hover) {
+  .classes_btn:hover {
+    background: var(--color-accent-red);
+  }
 }
+
+/* Focus */
+
+.classes_btn:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
+}
+
+/* Classes list */
 
 .classes_list {
   display: flex;
@@ -64,119 +97,35 @@
   display: flex;
   gap: 10px;
 
-  padding: 12px 14px;
   width: 100%;
   height: auto;
+  padding: 12px 14px;
 
   background: #151515;
 }
 
-.classes_day {
-  font-weight: 600;
-  font-size: 14px;
-}
+/* Class content */
 
-.classes_time {
-  font-weight: 600;
-  font-size: 14px;
-
-  color: var(--color-muted);
-}
-
+.classes_day,
+.classes_time,
 .classes_discipline {
   font-weight: 600;
   font-size: 14px;
 }
 
+.classes_time {
+  color: var(--color-muted);
+}
+
 /* Tablet */
 
 @media screen and (min-width: 768px) {
-  .classes_section {
-  }
-
-  .classes_container {
-  }
-
-  .classes_text_container {
-  }
-
-  .classes_label {
-  }
-
-  .classes_title {
-  }
-
-  .classes_filter {
-  }
-
-  .classes_btn {
-  }
-
-  .classes_btn_active {
-  }
-
-  .classes_info_container {
-  }
-
-  .classes_list {
-  }
-
-  .classes_item {
-  }
-
-  .classes_day {
-  }
-
-  .classes_time {
-  }
-
-  .classes_discipline {
-  }
 }
 
 /* Desktop */
 
 @media screen and (min-width: 1280px) {
-  .classes_section {
-  }
-
   .classes_container {
     flex-direction: row;
-  }
-
-  .classes_text_container {
-  }
-
-  .classes_label {
-  }
-
-  .classes_title {
-  }
-
-  .classes_filter {
-  }
-
-  .classes_btn {
-  }
-
-  .classes_btn_active {
-  }
-
-  .classes_info_container {
-  }
-
-  .classes_list {
-  }
-
-  .classes_item {
-  }
-
-  .classes_day {
-  }
-
-  .classes_time {
-  }
-
-  .classes_discipline {
   }
 }

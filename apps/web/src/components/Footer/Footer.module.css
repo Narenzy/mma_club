@@ -1,20 +1,40 @@
+/* Mobile */
+
+/* Footer section */
+
 .footer_section {
   margin: 35px auto 24px;
 }
+
+/* Footer container */
+
 .footer_container {
   display: flex;
   flex-direction: column;
+  gap: 80px;
 }
+
+/* Footer content */
+
 .footer_title {
   font-weight: 800;
   font-size: 14px;
-  color: var(--color-text);
 
-  padding-bottom: 80px;
+  color: var(--color-text);
 }
 
 .footer_text {
   font-size: 12px;
 
   color: #666;
+}
+
+/* Tablet */
+
+@media screen and (min-width: 768px) {
+}
+
+/* Desktop */
+
+@media screen and (min-width: 1280px) {
 }

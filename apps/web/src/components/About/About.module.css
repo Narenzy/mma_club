@@ -1,15 +1,18 @@
-.about_section {
-  display: flex;
-  align-items: center;
+/* Mobile */
 
+.about_section {
   margin: 35px auto 24px;
 }
+
+/* About container */
 
 .about_container {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
+
+/* About content */
 
 .about_wrapper {
   display: flex;
@@ -21,6 +24,7 @@
   font-weight: 600;
   font-size: 12px;
   letter-spacing: 0.08em;
+
   color: var(--color-accent-red);
 }
 
@@ -33,28 +37,65 @@
   color: var(--color-muted);
 }
 
+/* About button */
+
 .about_btn_learn {
-  text-align: center;
-  font-weight: 600;
-  font-size: 12px;
+  width: 150px;
+  height: auto;
+  padding: 12px 18px;
 
   border: 1px solid #4a4a4a;
   border-radius: 4px;
-  padding: 12px 18px;
-  width: 150px;
-  height: auto;
+
+  font-weight: 600;
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+
+  cursor: pointer;
 
   transition:
     background-color 250ms ease,
     color 250ms ease;
 }
-.about_btn_learn:hover,
-.about_btn_learn:focus {
-  background-color: white;
-  color: black;
-  cursor: pointer;
+
+/* Hover */
+
+@media (hover: hover) {
+  .about_btn_learn:hover {
+    color: #000;
+    background-color: #fff;
+  }
 }
+
+/* Focus */
+
+.about_btn_learn:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
+}
+
+/* Active */
+
+.about_btn_learn:active {
+  color: #000;
+  background-color: #fff;
+}
+
+/* About image */
 
 .about_img {
   display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Tablet */
+
+@media screen and (min-width: 768px) {
+}
+
+/* Desktop */
+
+@media screen and (min-width: 1280px) {
 }

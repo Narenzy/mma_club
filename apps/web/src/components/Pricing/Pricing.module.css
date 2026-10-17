@@ -1,12 +1,26 @@
 /* Mobile */
 
+/* Pricing section */
+
 .pricing_section {
   margin: 35px auto 24px;
 }
 
+/* Pricing container */
+
 .pricing_container {
   display: flex;
   flex-direction: column;
+}
+
+/* Pricing content */
+
+.pricing_text_container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  padding-bottom: 20px;
 }
 
 .pricing_label {
@@ -15,6 +29,7 @@
   font-weight: 600;
   font-size: 12px;
   letter-spacing: 0.08em;
+
   color: var(--color-accent-red);
 }
 
@@ -23,13 +38,7 @@
   font-size: 34px;
 }
 
-.pricing_text_container {
-  display: flex;
-  flex-direction: column;
-
-  gap: 20px;
-  padding-bottom: 20px;
-}
+/* Pricing plans */
 
 .pricing_plans_container {
   display: flex;
@@ -42,17 +51,15 @@
   flex-direction: column;
   gap: 16px;
 
-  background: #151515;
+  width: 100%;
+  height: auto;
+  padding: 24px 22px;
 
   border: 1px solid #2a2a2a;
   border-radius: 8px;
-  padding: 24px 22px;
-  width: 100%;
-  height: auto;
-}
 
-.pricing_plan_article {
-  border: 1px solid #2a2a2a;
+  background: #151515;
+
   transition:
     border-color 250ms ease,
     box-shadow 250ms ease;
@@ -61,6 +68,8 @@
 .pricing_plan_active {
   border-color: var(--color-accent-red);
 }
+
+/* Plan content */
 
 .plans_title {
   font-weight: 800;
@@ -74,8 +83,11 @@
 
 .plans_description {
   font-size: 14px;
+
   color: var(--color-muted);
 }
+
+/* Features list */
 
 .pricing_list {
   display: flex;
@@ -95,107 +107,65 @@
 .pricing_check_icon {
   flex-shrink: 0;
 
-  fill: var(--color-accent-red);
-
   width: 16px;
   height: 16px;
+
+  fill: var(--color-accent-red);
 }
 
+/* Pricing button */
+
 .pricing_btn {
+  width: 100%;
+  height: 42px;
+  padding: 12px 18px;
+
+  border-radius: 4px;
+
   font-weight: 600;
   font-size: 12px;
 
-  border-radius: 4px;
-  padding: 12px 18px;
-  width: 100%;
-  height: 42px;
-
   color: var(--color-text);
   background: var(--color-accent-red);
-  transition: background-color 250ms ease;
+
+  cursor: pointer;
+
+  transition:
+    background-color 250ms ease,
+    transform 120ms ease;
 }
-.pricing_btn:hover,
-.pricing_btn:focus {
+
+/* Hover */
+
+@media (hover: hover) {
+  .pricing_btn:hover {
+    background-color: var(--color-hover-red);
+  }
+}
+
+/* Focus */
+
+.pricing_btn:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
+}
+
+/* Active */
+
+.pricing_btn:active {
   background-color: var(--color-hover-red);
+  transform: scale(0.98);
 }
 
 /* Tablet */
 
 @media screen and (min-width: 768px) {
-  .pricing_section {
-  }
-
-  .pricing_container {
-  }
-
-  .pricing_label {
-  }
-
-  .pricing_title {
-  }
-
-  .pricing_plans_container {
-  }
-
-  .pricing_plan_article {
-  }
-
-  .plans_title {
-  }
-
-  .plans_price {
-  }
-
-  .plans_description {
-  }
-
-  .pricing_list {
-  }
-
-  .pricing_list_item {
-  }
-
-  .pricing_btn {
-  }
 }
 
 /* Desktop */
 
 @media screen and (min-width: 1280px) {
-  .pricing_section {
-  }
-
-  .pricing_container {
-  }
-
-  .pricing_label {
-  }
-
-  .pricing_title {
-  }
-
   .pricing_plans_container {
     flex-direction: row;
-  }
-
-  .pricing_plan_article {
-  }
-
-  .plans_title {
-  }
-
-  .plans_price {
-  }
-
-  .plans_description {
-  }
-
-  .pricing_list {
-  }
-
-  .pricing_list_item {
-  }
-
-  .pricing_btn {
   }
 }
