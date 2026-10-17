@@ -1,6 +1,15 @@
 import css from "./Hero.module.css";
 
-export default function Hero() {
+import type { Dispatch, SetStateAction } from "react";
+
+type HeroProps = {
+  setSelectedPlanId: Dispatch<SetStateAction<string | null>>;
+};
+
+export default function Hero({ setSelectedPlanId }: HeroProps) {
+  const handleFreeTrialClick = () => {
+    setSelectedPlanId(null);
+  };
   return (
     <section className={css.hero_section} id="hero">
       <div className={`container ${css.hero_container}`}>
@@ -10,7 +19,11 @@ export default function Hero() {
           train with purpose.
         </p>
         <div className={css.hero_action}>
-          <a href="#contacts" className={css.hero_btn_book}>
+          <a
+            href="#contacts"
+            className={css.hero_btn_book}
+            onClick={handleFreeTrialClick}
+          >
             BOOK A FREE TRIAL
           </a>
 

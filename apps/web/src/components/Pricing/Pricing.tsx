@@ -41,8 +41,8 @@ export default function Pricing({
                     <li className={css.pricing_list_item} key={feature}>
                       <svg
                         className={css.pricing_check_icon}
-                        width="18"
-                        height="18"
+                        width="16"
+                        height="16"
                         aria-hidden="true"
                       >
                         <use href="/svg/sprite.svg#icon-check" />

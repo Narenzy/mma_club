@@ -1,0 +1,95 @@
+/* Mobile */
+
+.freetrial_section {
+  margin: 35px auto 24px;
+}
+
+.freetrial_container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.freetrial_label {
+  font-weight: 600;
+  font-size: 12px;
+
+  letter-spacing: 0.08em;
+  color: var(--color-accent-red);
+}
+
+.freetrial_title {
+  font-weight: 800;
+  font-size: 31px;
+
+  color: var(--color-text);
+}
+
+.freetrial_description {
+  font-size: 14px;
+
+  color: var(--color-muted);
+}
+
+.freetrial_btn {
+  border-radius: 4px;
+  padding: 12px 18px;
+  width: 354px;
+  height: 42px;
+
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--color-text);
+
+  transition: background-color 250ms ease;
+  background: var(--color-accent-red);
+}
+
+.freetrial_btn:hover,
+.freetrial_btn:focus {
+  background: var(--color-hover);
+}
+
+/* Tablet */
+
+@media screen and (min-width: 768px) {
+  .freetrial_section {
+  }
+
+  .freetrial_container {
+  }
+
+  .freetrial_label {
+  }
+
+  .freetrial_title {
+  }
+
+  .freetrial_description {
+  }
+
+  .freetrial_btn {
+  }
+}
+
+/* Desktop */
+
+@media screen and (min-width: 1280px) {
+  .freetrial_section {
+  }
+
+  .freetrial_container {
+  }
+
+  .freetrial_label {
+  }
+
+  .freetrial_title {
+  }
+
+  .freetrial_description {
+  }
+
+  .freetrial_btn {
+  }
+}
