@@ -110,7 +110,7 @@
   width: 16px;
   height: 16px;
 
-  fill: var(--color-accent-red);
+  color: var(--color-accent-red);
 }
 
 /* Pricing button */

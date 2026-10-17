@@ -35,14 +35,24 @@ export default function Benefits() {
         <ul className={css.benefits_list}>
           {benefits.map((benefit) => (
             <li className={css.benefits_item} key={benefit.title}>
-              <svg
-                className={css.benefits_svg_circle}
-                width="32"
-                height="32"
-                aria-hidden="true"
-              >
-                <use href="/svg/sprite.svg#icon-ellipse" />
-              </svg>
+              <div className={css.benefits_svg_wrapper}>
+                <svg
+                  className={css.benefits_svg_circle}
+                  width="32"
+                  height="32"
+                  aria-hidden="true"
+                >
+                  <use href="/svg/sprite.svg#icon-ellipse" />
+                </svg>
+                <svg
+                  className={css.benefits_svg_check}
+                  width="32"
+                  height="32"
+                  aria-hidden="true"
+                >
+                  <use href="/svg/sprite.svg#icon-check-benefits" />
+                </svg>
+              </div>
 
               <div className={css.benefits_description_container}>
                 <h3 className={css.benefits_subtitle}>{benefit.title}</h3>
