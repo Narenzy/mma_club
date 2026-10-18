@@ -49,7 +49,7 @@ export default function Contacts({
         duration: 1,
         ease: "easeInOut",
       }}
-      viewport={{ once: false }}
+      viewport={{ once: true }}
       className={css.contacts_section}
       id="contacts"
     >

@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 export default function About() {
   return (
     <motion.section
-      initial={{ opacity: 0, y: 100 }}
+      initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{
         duration: 1,

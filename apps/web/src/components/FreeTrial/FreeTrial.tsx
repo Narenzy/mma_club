@@ -13,13 +13,10 @@ export default function FreeTrial({ setSelectedPlanId }: FreeTrialProps) {
   };
   return (
     <motion.section
-      initial={{ opacity: 0, y: 100 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 1,
-        ease: "easeInOut",
-      }}
-      viewport={{ once: false }}
+      initial={{ opacity: 0, x: -80 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
       className={css.freetrial_section}
       id="free-trial"
     >

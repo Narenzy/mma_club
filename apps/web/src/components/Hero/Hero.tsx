@@ -24,11 +24,25 @@ export default function Hero({ setSelectedPlanId }: HeroProps) {
       id="hero"
     >
       <div className={`container ${css.hero_container}`}>
-        <h1 className={css.hero_title}>STRIKEBULL MMA CLUB</h1>
-        <p className={css.hero_text_under}>
+        <motion.h1
+          initial={{ opacity: 0, filter: "blur(10px)" }}
+          whileInView={{ opacity: 1, filter: "blur(0px)" }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className={css.hero_title}
+        >
+          STRIKEBULL MMA CLUB
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className={css.hero_text_under}
+        >
           Mehr als nur ein Fitnessstudio. Ein Ort, an dem du stärker wirst,
           deine Fähigkeiten verbesserst und mit einem klaren Ziel trainierst.
-        </p>
+        </motion.p>
         <div className={css.hero_action}>
           <a
             href="#contacts"

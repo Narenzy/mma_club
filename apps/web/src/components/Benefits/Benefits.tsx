@@ -1,6 +1,26 @@
 import css from "./Benefits.module.css";
 import { motion } from "motion/react";
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.5,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 40,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+  },
+};
+
 const benefits = [
   {
     title: "PROFESSIONELLE TRAINER",
@@ -22,17 +42,7 @@ const benefits = [
 
 export default function Benefits() {
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 100 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 1,
-        ease: "easeInOut",
-      }}
-      viewport={{ once: false }}
-      className={css.benefits_section}
-      id="benefits"
-    >
+    <section className={css.benefits_section} id="benefits">
       <div className={`container ${css.benefits_container}`}>
         <p className={css.benefits_label}>UNSERE VORTEILE</p>
 
@@ -43,9 +53,23 @@ export default function Benefits() {
           dich motiviert und voranbringt.
         </p>
 
-        <ul className={css.benefits_list}>
+        <motion.ul
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className={css.benefits_list}
+        >
           {benefits.map((benefit) => (
-            <li className={css.benefits_item} key={benefit.title}>
+            <motion.li
+              variants={itemVariants}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+              }}
+              className={css.benefits_item}
+              key={benefit.title}
+            >
               <div className={css.benefits_svg_wrapper}>
                 <svg
                   className={css.benefits_svg_circle}
@@ -70,10 +94,10 @@ export default function Benefits() {
 
                 <p className={css.benefits_text}>{benefit.text}</p>
               </div>
-            </li>
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
       </div>
-    </motion.section>
+    </section>
   );
 }
