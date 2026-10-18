@@ -17,11 +17,28 @@ export default function Programs() {
         <div className={css.classes_items}>
           <ul className={css.classes_list}>
             <li className={css.classes_item}>
-              <img
-                className={css.classes_image}
-                src="/images/mma.webp"
-                alt="MMA-Training"
-              />
+              <picture>
+                <source
+                  media="(min-width: 1280px)"
+                  srcSet="/images/prog-desk-img1x.webp 1x,
+                          /images/prog-desk-img2x.webp 2x"
+                />
+                <source
+                  media="(min-width: 768px)"
+                  srcSet="/images/prog-tab-img1x.webp 1x,
+                          /images/prog-tab-img2x.webp 2x
+                          "
+                />
+
+                <img
+                  className={css.classes_image}
+                  src="/images/prog-mob-1x.webp"
+                  srcSet="/images/prog-mob-img1x.webp 1x,
+                          /images/prog-mob-img2x.webp 2x
+                          "
+                  alt="MMA-Training"
+                />
+              </picture>
 
               <h3 className={css.classes_title}>MMA</h3>
 
