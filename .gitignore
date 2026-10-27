@@ -1,10 +1,3 @@
-# dotenv environment variable files
-.env
-.env.*
-!.env.example
-
-
-
 .vscode
 .DS_Store
 .idea
@@ -76,6 +69,10 @@ web_modules/
 # Yarn Integrity file
 .yarn-integrity
 
+# dotenv environment variable files
+.env
+.env.*
+!.env.example
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
