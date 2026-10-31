@@ -22,3 +22,28 @@ export const createContact = async (req, res) => {
   const contact = await Contact.create(req.body);
   res.status(201).json(contact);
 };
+
+export const deleteContact = async (req, res) => {
+  const { contactId } = req.params;
+  const contact = await Contact.findOneAndDelete({ _id: contactId });
+
+  if (!contact) {
+    throw createHttpError(404, 'Contact was not found!');
+  }
+
+  res.status(201).json(contact);
+};
+
+export const updateContact = async (req, res) => {
+  const { contactId } = req.params;
+
+  const contact = await Contact.findOneAndUpdate({ _id: contactId }, req.body, {
+    returnDocument: 'after',
+  });
+
+  if (!contact) {
+    throw createHttpError(404, 'Contact was not found!');
+  }
+
+  res.status(200).json(contact);
+};
