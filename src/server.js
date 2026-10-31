@@ -1,51 +1,23 @@
 import express from 'express';
 import 'dotenv/config';
 import cors from 'cors';
-import pino from 'pino-http';
+import { logger } from './middleware/logger.js';
+import { errorHandler } from './middleware/errorHandler.js';
+import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { connectMongoDB } from './db/connectMongoDB.js';
+import contactsRoutes from './routes/contactsRoutes.js';
 
 const app = express();
-const PORT = process.env.PORT ?? 5000;
+const PORT = process.env.PORT ?? 5001;
 
+app.use(logger);
 app.use(express.json());
 app.use(cors());
-app.use(
-  pino({
-    level: 'info',
-    transport: {
-      target: 'pino-pretty',
-      options: {
-        colorize: true,
-        translateTime: 'HH:MM:ss',
-        ignore: 'pid,hostname',
-        messageFormat:
-          '{req.method} {req.url} {res.statusCode} - {responseTime}ms',
-        hideObject: true,
-      },
-    },
-  }),
-);
 
-app.get('/health', (req, res) => {
-  res.status(200).json({ message: 'Ok!' });
-});
+app.use(contactsRoutes);
 
-// app.use();
-app.use((req, res) => {
-  res.status(404).json({ message: 'Route not found' });
-});
-
-app.use((err, req, res, next) => {
-  console.error(err);
-
-  const isProd = process.env.NODE_ENV === 'production';
-
-  res.status(500).json({
-    message: isProd
-      ? 'Something went wrong. Please try again later.'
-      : err.message,
-  });
-});
+app.use(notFoundHandler);
+app.use(errorHandler);
 
 await connectMongoDB();
 
