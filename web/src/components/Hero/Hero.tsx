@@ -1,15 +1,18 @@
-import css from "./Hero.module.css";
-import { motion } from "motion/react";
+import css from './Hero.module.css';
+import { motion } from 'motion/react';
 
-import type { Dispatch, SetStateAction } from "react";
+import type { Dispatch, SetStateAction } from 'react';
+import type { ContactPlanId, ContactRequestType } from '../../types/contact.ts';
 
 type HeroProps = {
-  setSelectedPlanId: Dispatch<SetStateAction<string | null>>;
+  setSelectedPlanId: Dispatch<SetStateAction<ContactPlanId>>;
+  setRequestType: Dispatch<SetStateAction<ContactRequestType>>;
 };
 
-export default function Hero({ setSelectedPlanId }: HeroProps) {
+export default function Hero({ setSelectedPlanId, setRequestType }: HeroProps) {
   const handleFreeTrialClick = () => {
     setSelectedPlanId(null);
+    setRequestType('trial');
   };
   return (
     <motion.section
@@ -17,7 +20,7 @@ export default function Hero({ setSelectedPlanId }: HeroProps) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{
         duration: 1,
-        ease: "easeInOut",
+        ease: 'easeInOut',
       }}
       viewport={{ once: true }}
       className={css.hero_section}
@@ -25,8 +28,8 @@ export default function Hero({ setSelectedPlanId }: HeroProps) {
     >
       <div className={`container ${css.hero_container}`}>
         <motion.h1
-          initial={{ opacity: 0, filter: "blur(10px)" }}
-          whileInView={{ opacity: 1, filter: "blur(0px)" }}
+          initial={{ opacity: 0, filter: 'blur(10px)' }}
+          whileInView={{ opacity: 1, filter: 'blur(0px)' }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className={css.hero_title}
