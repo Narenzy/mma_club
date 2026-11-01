@@ -9,6 +9,7 @@ import { motion } from 'motion/react';
 import { createContact } from '../../services/contactsApi.ts';
 import type { ContactPlanId, ContactRequestType } from '../../types/contact.ts';
 import { toast } from 'sonner';
+import { TailSpin } from 'react-loader-spinner';
 
 type ContactFormData = InferType<typeof contactSchema>;
 
@@ -171,7 +172,20 @@ export default function Contacts({
               type="submit"
               disabled={isSubmitting}
             >
-              {isSubmitting ? 'WIRD GESENDET...' : 'NACHRICHT SENDEN'}
+              {isSubmitting ? (
+                <>
+                  <TailSpin
+                    height={18}
+                    width={18}
+                    color="currentColor"
+                    ariaLabel="loading"
+                    visible={true}
+                  />
+                  WIRD GESENDET...
+                </>
+              ) : (
+                'NACHRICHT SENDEN'
+              )}
             </button>
           </div>
         </form>
