@@ -9,7 +9,7 @@ import contactsRoutes from './routes/contactsRoutes.js';
 import { errors } from 'celebrate';
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5003;
 
 app.use(logger);
 app.use(express.json({ limit: '100kb' }));
