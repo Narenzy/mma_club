@@ -10,6 +10,7 @@ import { celebrate } from 'celebrate';
 import { createContactSchema } from '../validations/contactsValidation.js';
 import { contactIdParamSchema } from '../validations/contactsValidation.js';
 import { updateContactSchema } from '../validations/contactsValidation.js';
+import { contactRateLimiter } from '../middleware/contactRateLimiter.js';
 
 const router = Router();
 
@@ -21,7 +22,12 @@ router.get(
   getContactById,
 );
 
-router.post('/contacts', celebrate(createContactSchema), createContact);
+router.post(
+  '/contacts',
+  contactRateLimiter,
+  celebrate(createContactSchema),
+  createContact,
+);
 
 router.delete(
   '/contacts/:contactId',
