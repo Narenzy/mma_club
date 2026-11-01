@@ -5,6 +5,7 @@ import {
   createContact,
   deleteContact,
   updateContact,
+  healthCheck,
 } from '../controllers/contactsController.js';
 import { celebrate } from 'celebrate';
 import { createContactSchema } from '../validations/contactsValidation.js';
@@ -13,6 +14,8 @@ import { updateContactSchema } from '../validations/contactsValidation.js';
 import { contactRateLimiter } from '../middleware/contactRateLimiter.js';
 
 const router = Router();
+
+router.get('/health', healthCheck);
 
 router.get('/contacts', getContacts);
 

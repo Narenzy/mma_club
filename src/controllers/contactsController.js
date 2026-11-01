@@ -1,6 +1,10 @@
 import createHttpError from 'http-errors';
 import { Contact } from '../models/contacts.js';
 
+export const healthCheck = async (re, res) => {
+  res.status(200).json({ status: 'ok' });
+};
+
 export const getContacts = async (req, res) => {
   const contacts = await Contact.find();
 
