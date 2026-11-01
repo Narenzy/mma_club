@@ -1,7 +1,9 @@
 import type { CreateContactPayload } from '../types/contact';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export const createContact = async (payload: CreateContactPayload) => {
-  const response = await fetch('http://localhost:5001/contacts', {
+  const response = await fetch(`${API_URL}/contacts`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
