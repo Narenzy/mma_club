@@ -1,44 +1,59 @@
-import css from "./Contacts.module.css";
-import { useForm } from "react-hook-form";
-import { contactSchema } from "../../validation/contactSchema";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { pricingPlans } from "../../data/pricing";
-import type { InferType } from "yup";
-import type { Dispatch, SetStateAction } from "react";
-import { motion } from "motion/react";
+import css from './Contacts.module.css';
+import { useForm } from 'react-hook-form';
+import { contactSchema } from '../../validation/contactSchema';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { pricingPlans } from '../../data/pricing';
+import type { InferType } from 'yup';
+import type { Dispatch, SetStateAction } from 'react';
+import { motion } from 'motion/react';
+import { createContact } from '../../services/contactsApi.ts';
+import type { ContactPlanId, ContactRequestType } from '../../types/contact.ts';
+import { toast } from 'sonner';
 
 type ContactFormData = InferType<typeof contactSchema>;
 
 type ContactsProps = {
-  selectedPlanId: string | null;
-  setSelectedPlanId: Dispatch<SetStateAction<string | null>>;
+  selectedPlanId: ContactPlanId;
+  setSelectedPlanId: Dispatch<SetStateAction<ContactPlanId>>;
+  requestType: ContactRequestType;
+  setRequestType: Dispatch<SetStateAction<ContactRequestType>>;
 };
 
 export default function Contacts({
   selectedPlanId,
   setSelectedPlanId,
+  requestType,
+  setRequestType,
 }: ContactsProps) {
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<ContactFormData>({ resolver: yupResolver(contactSchema) });
-
-  //TODO: send payload to backend and reset form only after successful response
 
   const selectedPlan = pricingPlans.find((plan) => plan.id === selectedPlanId);
 
-  const onSubmit = (data: ContactFormData) => {
-    const payload = {
-      ...data,
-      planId: selectedPlanId,
-    };
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      const payload = {
+        ...data,
+        requestType,
+        planId: requestType === 'membership' ? selectedPlanId : null,
+      };
 
-    console.log(payload); //hier delete log and add real backand data!!!
-    setSelectedPlanId(null);
+      await createContact(payload);
+      toast.success('Ihre Anfrage wurde erfolgreich gesendet.');
 
-    reset();
+      setSelectedPlanId(null);
+      setRequestType('contact');
+      reset();
+    } catch (error) {
+      console.error('Error creating contact:', error);
+      toast.error(
+        'Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut.',
+      );
+    }
   };
 
   return (
@@ -47,7 +62,7 @@ export default function Contacts({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{
         duration: 1,
-        ease: "easeInOut",
+        ease: 'easeInOut',
       }}
       viewport={{ once: true }}
       className={css.contacts_section}
@@ -102,7 +117,7 @@ export default function Contacts({
               id="firstName"
               type="text"
               autoComplete="given-name"
-              {...register("firstName")}
+              {...register('firstName')}
             />
             {errors.firstName && (
               <p className={css.form_error}>{errors.firstName.message}</p>
@@ -116,7 +131,7 @@ export default function Contacts({
               id="lastName"
               type="text"
               autoComplete="family-name"
-              {...register("lastName")}
+              {...register('lastName')}
             />
             {errors.lastName && (
               <p className={css.form_error}>{errors.lastName.message}</p>
@@ -130,7 +145,7 @@ export default function Contacts({
               id="email"
               type="email"
               autoComplete="email"
-              {...register("email")}
+              {...register('email')}
             />
             {errors.email && (
               <p className={css.form_error}>{errors.email.message}</p>
@@ -143,7 +158,7 @@ export default function Contacts({
               className={css.form_textarea}
               id="message"
               rows={8}
-              {...register("message")}
+              {...register('message')}
             />
             {errors.message && (
               <p className={css.form_error}>{errors.message.message}</p>
@@ -151,8 +166,12 @@ export default function Contacts({
           </div>
 
           <div className={css.form_actions}>
-            <button className={css.form_button} type="submit">
-              NACHRICHT SENDEN
+            <button
+              className={css.form_button}
+              type="submit"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'WIRD GESENDET...' : 'NACHRICHT SENDEN'}
             </button>
           </div>
         </form>

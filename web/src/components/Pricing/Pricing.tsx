@@ -1,15 +1,18 @@
-import css from "./Pricing.module.css";
-import { pricingPlans } from "../../data/pricing";
-import type { Dispatch, SetStateAction } from "react";
-import { motion } from "motion/react";
+import css from './Pricing.module.css';
+import { pricingPlans } from '../../data/pricing';
+import type { Dispatch, SetStateAction } from 'react';
+import { motion } from 'motion/react';
+import type { ContactPlanId, ContactRequestType } from '../../types/contact.ts';
 
 type PricingProps = {
-  selectedPlanId: string | null;
-  setSelectedPlanId: Dispatch<SetStateAction<string | null>>;
+  selectedPlanId: ContactPlanId;
+  setSelectedPlanId: Dispatch<SetStateAction<ContactPlanId>>;
+  setRequestType: Dispatch<SetStateAction<ContactRequestType>>;
 };
 export default function Pricing({
   selectedPlanId,
   setSelectedPlanId,
+  setRequestType,
 }: PricingProps) {
   return (
     <motion.section
@@ -17,7 +20,7 @@ export default function Pricing({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{
         duration: 1,
-        ease: "easeInOut",
+        ease: 'easeInOut',
       }}
       viewport={{ once: false }}
       className={css.pricing_section}
@@ -36,10 +39,18 @@ export default function Pricing({
             return (
               <article
                 className={`${css.pricing_plan_article} ${
-                  isActive ? css.pricing_plan_active : ""
+                  isActive ? css.pricing_plan_active : ''
                 }`}
                 key={plan.id}
-                onClick={() => setSelectedPlanId(isActive ? null : plan.id)}
+                onClick={() => {
+                  if (isActive) {
+                    setSelectedPlanId(null);
+                    setRequestType('contact');
+                  } else {
+                    setSelectedPlanId(plan.id);
+                    setRequestType('membership');
+                  }
+                }}
               >
                 <h3 className={css.plans_title}>{plan.title}</h3>
 
@@ -71,10 +82,11 @@ export default function Pricing({
                     event.stopPropagation();
 
                     setSelectedPlanId(plan.id);
+                    setRequestType('membership');
 
                     document
-                      .getElementById("contacts")
-                      ?.scrollIntoView({ behavior: "smooth" });
+                      .getElementById('contacts')
+                      ?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
                   TARIF WÄHLEN

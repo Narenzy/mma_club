@@ -203,6 +203,11 @@
     transform 120ms ease;
 }
 
+.form_button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 /* Hover */
 
 @media (hover: hover) {

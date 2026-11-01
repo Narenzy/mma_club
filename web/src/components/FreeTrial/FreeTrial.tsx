@@ -1,15 +1,21 @@
-import css from "./FreeTrial.module.css";
-import type { Dispatch, SetStateAction } from "react";
-import { motion } from "motion/react";
+import css from './FreeTrial.module.css';
+import type { Dispatch, SetStateAction } from 'react';
+import { motion } from 'motion/react';
+import type { ContactPlanId, ContactRequestType } from '../../types/contact.ts';
 
 type FreeTrialProps = {
-  setSelectedPlanId: Dispatch<SetStateAction<string | null>>;
+  setSelectedPlanId: Dispatch<SetStateAction<ContactPlanId>>;
+  setRequestType: Dispatch<SetStateAction<ContactRequestType>>;
 };
 
-export default function FreeTrial({ setSelectedPlanId }: FreeTrialProps) {
+export default function FreeTrial({
+  setSelectedPlanId,
+  setRequestType,
+}: FreeTrialProps) {
   const handleFreeTrialClick = () => {
     setSelectedPlanId(null);
-    document.getElementById("contacts")?.scrollIntoView({ behavior: "smooth" });
+    setRequestType('trial');
+    document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' });
   };
   return (
     <motion.section
