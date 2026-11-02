@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vielen Dank für Ihre Anfrage</title>
+  </head>
+
+  <body>
+    <h1>Hallo, {{firstName}}!</h1>
+
+    <p>Vielen Dank für Ihre Anfrage bei Strikebull MMA Club.</p>
+
+    <p>
+      Wir haben Ihre Nachricht erhalten und werden uns so schnell wie möglich
+      bei Ihnen melden.
+    </p>
+
+    {{#if planId}}
+    <p>Ausgewählter Tarif: {{planId}}</p>
+    {{/if}}
+
+    <p>Freundliche Grüsse</p>
+
+    <p>Strikebull MMA Club</p>
+  </body>
+</html>

@@ -1,5 +1,6 @@
 import createHttpError from 'http-errors';
 import { Contact } from '../models/contacts.js';
+import { sendContactEmails } from '../services/emailService.js';
 
 export const healthCheck = async (re, res) => {
   res.status(200).json({ status: 'ok' });
@@ -24,6 +25,20 @@ export const getContactById = async (req, res) => {
 
 export const createContact = async (req, res) => {
   const contact = await Contact.create(req.body);
+
+  try {
+    await sendContactEmails(contact);
+  } catch (error) {
+    req.log?.error(
+      {
+        err: error,
+        contactId: contact._id,
+        email: contact.email,
+      },
+      'Failed to send contact emails',
+    );
+  }
+
   res.status(201).json(contact);
 };
 

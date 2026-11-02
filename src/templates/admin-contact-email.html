@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neue Kontaktanfrage</title>
+  </head>
+
+  <body>
+    <h1>Neue Kontaktanfrage</h1>
+
+    <p><strong>Name:</strong> {{firstName}} {{lastName}}</p>
+
+    <p><strong>E-Mail:</strong> {{email}}</p>
+
+    <p><strong>Anfragetyp:</strong> {{requestType}}</p>
+
+    {{#if planId}}
+    <p><strong>Tarif:</strong> {{planId}}</p>
+    {{/if}} {{#if message}}
+    <p><strong>Nachricht:</strong></p>
+    <p>{{message}}</p>
+    {{/if}}
+  </body>
+</html>
