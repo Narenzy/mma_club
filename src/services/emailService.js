@@ -23,6 +23,8 @@ const REQUIRED_ENV_VARIABLES = [
 
 const templateCache = new Map();
 
+let transporter;
+
 const validateEmailEnvironment = () => {
   const missingVariables = REQUIRED_ENV_VARIABLES.filter(
     (variable) => !process.env[variable],
@@ -35,7 +37,11 @@ const validateEmailEnvironment = () => {
   }
 };
 
-const createTransporter = () => {
+const getTransporter = () => {
+  if (transporter) {
+    return transporter;
+  }
+
   validateEmailEnvironment();
 
   const port = Number(process.env.SMTP_PORT);
@@ -44,15 +50,11 @@ const createTransporter = () => {
     throw new Error('SMTP_PORT must be a valid number.');
   }
 
-  return nodemailer.createTransport({
+  transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port,
 
-    // Port 465 uses implicit TLS.
-    // Port 587 starts without implicit TLS and upgrades via STARTTLS.
     secure: port === 465,
-
-    // For our production Brevo connection we require encryption.
     requireTLS: port !== 465,
 
     auth: {
@@ -64,6 +66,8 @@ const createTransporter = () => {
     greetingTimeout: 10_000,
     socketTimeout: 20_000,
   });
+
+  return transporter;
 };
 
 const compileEmailTemplate = async (templateName, data) => {
@@ -83,9 +87,9 @@ const compileEmailTemplate = async (templateName, data) => {
 };
 
 const sendEmail = async ({ to, subject, html, text, replyTo }) => {
-  const transporter = createTransporter();
+  const smtpTransporter = getTransporter();
 
-  return transporter.sendMail({
+  return smtpTransporter.sendMail({
     from: {
       name: 'Strikebull MMA Club',
       address: process.env.SMTP_FROM,
@@ -151,9 +155,6 @@ Nachricht: ${message || 'Keine Nachricht'}
       subject: EMAIL_SUBJECTS.userConfirmation,
       html: userHtml,
       text: userText,
-
-      // Якщо користувач відповість на автоматичний лист,
-      // відповідь піде адміну.
       replyTo: process.env.ADMIN_EMAIL,
     }),
 
@@ -162,9 +163,6 @@ Nachricht: ${message || 'Keine Nachricht'}
       subject: EMAIL_SUBJECTS.adminNotification,
       html: adminHtml,
       text: adminText,
-
-      // Якщо адмін натисне Reply,
-      // відповідь піде користувачу.
       replyTo: email,
     }),
   ]);
