@@ -64,7 +64,7 @@ export const createContactSchema = {
       is: 'membership',
 
       then: Joi.string()
-        .valid('kids', 'students', 'adults', 'personal-training')
+        .valid('students_half_jear', 'students', 'adults', 'adults_half_jear')
         .required()
         .messages({
           'string.base':
@@ -119,7 +119,7 @@ export const updateContactSchema = {
     }),
 
     planId: Joi.string()
-      .valid('kids', 'students', 'adults', 'personal-training')
+      .valid('students_half_jear', 'students', 'adults', 'adults_half_jear')
       .allow(null)
       .messages({
         'any.only': 'Der ausgewählte Tarif ist ungültig.',

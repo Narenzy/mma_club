@@ -1,10 +1,10 @@
 export type ContactRequestType = 'contact' | 'trial' | 'membership';
 
 export type ContactPlanId =
-  | 'kids'
+  | 'students_half_jear'
   | 'students'
+  | 'adults_half_jear'
   | 'adults'
-  | 'personal-training'
   | null;
 
 export interface CreateContactPayload {

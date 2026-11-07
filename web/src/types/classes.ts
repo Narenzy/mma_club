@@ -1,6 +1,6 @@
-export type Category = "Alle" | "MMA";
+export type Category = 'Alle' | 'MMA';
 
-export type Discipline = "MMA" | "Open Mat";
+export type Discipline = 'MMA';
 
 export interface ClassItems {
   day: string;

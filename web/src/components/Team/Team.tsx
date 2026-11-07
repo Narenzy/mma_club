@@ -1,5 +1,5 @@
-import css from "./Team.module.css";
-import { motion } from "motion/react";
+import css from './Team.module.css';
+import { motion } from 'motion/react';
 
 export default function Team() {
   return (
@@ -8,7 +8,7 @@ export default function Team() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{
         duration: 1,
-        ease: "easeInOut",
+        ease: 'easeInOut',
       }}
       viewport={{ once: false }}
       id="team"
@@ -29,30 +29,6 @@ export default function Team() {
               <h3 className={css.team_member_name}>CHERNENKO DMYTRO</h3>
 
               <p className={css.team_description}>Cheftrainer / MMA trainer</p>
-            </li>
-
-            <li className={css.team_item}>
-              <img
-                className={css.team_image}
-                src="/images/chernenko_syzanna.webp"
-                alt="Syzanna Chernenko administrator"
-              />
-
-              <h3 className={css.team_member_name}>CHERNENKO SUZANNA</h3>
-
-              <p className={css.team_description}>Administratorin</p>
-            </li>
-
-            <li className={css.team_item}>
-              <img
-                className={css.team_image}
-                src="/images/imhof_andreas.webp"
-                alt="Imhof Andreas Club President"
-              />
-
-              <h3 className={css.team_member_name}>IMHOF ANDREAS</h3>
-
-              <p className={css.team_description}> Präsident / Hauptpartner</p>
             </li>
           </ul>
         </div>
