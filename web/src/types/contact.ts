@@ -1,9 +1,9 @@
 export type ContactRequestType = 'contact' | 'trial' | 'membership';
 
 export type ContactPlanId =
-  | 'students_half_jear'
+  | 'students_half_year'
   | 'students'
-  | 'adults_half_jear'
+  | 'adults_half_year'
   | 'adults'
   | null;
 

@@ -25,7 +25,7 @@ const contactSchema = new Schema(
     },
     planId: {
       type: String,
-      enum: ['students_half_jear', 'students', 'adults', 'adults_half_jear'],
+      enum: ['students_half_year', 'students', 'adults', 'adults_half_year'],
       default: null,
     },
     requestType: {

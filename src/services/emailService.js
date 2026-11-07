@@ -21,6 +21,19 @@ const REQUIRED_ENV_VARIABLES = [
   'ADMIN_EMAIL',
 ];
 
+const PLAN_LABELS = {
+  students_half_year: 'Studierende (6 Monate)',
+  students: 'Studierende (12 Monate)',
+  adults: 'Erwachsene (12 Monate)',
+  adults_half_year: 'Erwachsene (6 Monate)',
+};
+
+const REQUEST_TYPE_LABELS = {
+  contact: 'Kontaktanfrage',
+  trial: 'Probetraining',
+  membership: 'Mitgliedschaft',
+};
+
 const templateCache = new Map();
 
 let transporter;
@@ -113,13 +126,21 @@ export const sendContactEmails = async (contact) => {
     planId = null,
   } = contact;
 
+  const planLabel = planId
+    ? PLAN_LABELS[planId] || planId
+    : 'Kein Tarif ausgewählt';
+
+  const requestTypeLabel = REQUEST_TYPE_LABELS[requestType] || requestType;
+
   const templateData = {
     firstName,
     lastName,
     email,
     message,
     requestType,
+    requestTypeLabel,
     planId,
+    planLabel,
   };
 
   const [userHtml, adminHtml] = await Promise.all([
@@ -144,8 +165,8 @@ Neue Kontaktanfrage
 
 Name: ${firstName} ${lastName}
 E-Mail: ${email}
-Anfragetyp: ${requestType}
-Tarif: ${planId ?? 'Kein Tarif ausgewählt'}
+Anfragetyp: ${requestTypeLabel}
+Tarif: ${planLabel}
 Nachricht: ${message || 'Keine Nachricht'}
   `.trim();
 

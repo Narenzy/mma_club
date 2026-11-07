@@ -2,7 +2,7 @@ import type { PricePlan } from '../types/pricingPlans';
 
 export const pricingPlans: PricePlan[] = [
   {
-    id: 'students_half_jear',
+    id: 'students_half_year',
     title: 'STUDIERENDE – 6 MONATE',
     price: '200 CHF',
     description: 'Für Studierende und Personen in Ausbildung',
@@ -26,7 +26,7 @@ export const pricingPlans: PricePlan[] = [
     ],
   },
   {
-    id: 'adults_half_jear',
+    id: 'adults_half_year',
     title: 'ERWACHSENE – 6 MONATE',
     price: '250 CHF',
     description: 'Für Einsteiger und Fortgeschrittene',
