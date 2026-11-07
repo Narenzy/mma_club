@@ -6,22 +6,246 @@
     <title>Vielen Dank für Ihre Anfrage</title>
   </head>
 
-  <body>
-    <h1>Hallo, {{firstName}}!</h1>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #111111;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #ffffff;
+    "
+  >
+    <table
+      role="presentation"
+      width="100%"
+      cellspacing="0"
+      cellpadding="0"
+      border="0"
+      style="background-color: #111111; padding: 32px 16px"
+    >
+      <tr>
+        <td align="center">
+          <table
+            role="presentation"
+            width="100%"
+            cellspacing="0"
+            cellpadding="0"
+            border="0"
+            style="
+              max-width: 620px;
+              background-color: #181818;
+              border-radius: 16px;
+              overflow: hidden;
+              border: 1px solid #2f2f2f;
+            "
+          >
+            <!-- Header -->
+            <tr>
+              <td
+                style="
+                  background-color: #0b0b0b;
+                  padding: 28px 32px;
+                  text-align: center;
+                  border-bottom: 3px solid #c41f26;
+                "
+              >
+                <div
+                  style="
+                    font-size: 24px;
+                    font-weight: 700;
+                    letter-spacing: 0.5px;
+                  "
+                >
+                  STRIKEBULL MMA CLUB
+                </div>
 
-    <p>Vielen Dank für Ihre Anfrage bei Strikebull MMA Club.</p>
+                <div
+                  style="
+                    margin-top: 6px;
+                    font-size: 13px;
+                    color: #a8a8a8;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                  "
+                >
+                  Chur
+                </div>
+              </td>
+            </tr>
 
-    <p>
-      Wir haben Ihre Nachricht erhalten und werden uns so schnell wie möglich
-      bei Ihnen melden.
-    </p>
+            <!-- Main -->
+            <tr>
+              <td style="padding: 36px 32px">
+                <h1
+                  style="
+                    margin: 0 0 24px;
+                    font-size: 34px;
+                    line-height: 1.2;
+                    color: #ffffff;
+                  "
+                >
+                  Hallo, {{firstName}}!
+                </h1>
 
-    {{#if planLabel}}
-    <p>Ausgewählter Tarif: {{planLabel}}</p>
-    {{/if}}
+                <p
+                  style="
+                    margin: 0 0 18px;
+                    font-size: 17px;
+                    line-height: 1.7;
+                    color: #dddddd;
+                  "
+                >
+                  Vielen Dank für Ihre Anfrage bei Strikebull MMA Club.
+                </p>
 
-    <p>Freundliche Grüsse</p>
+                <p
+                  style="
+                    margin: 0 0 28px;
+                    font-size: 17px;
+                    line-height: 1.7;
+                    color: #dddddd;
+                  "
+                >
+                  Wir haben Ihre Nachricht erhalten und melden uns so schnell
+                  wie möglich bei Ihnen.
+                </p>
 
-    <p>Strikebull MMA Club</p>
+                {{#if planId}}
+                <table
+                  role="presentation"
+                  width="100%"
+                  cellspacing="0"
+                  cellpadding="0"
+                  border="0"
+                  style="
+                    margin: 0 0 30px;
+                    background-color: #202020;
+                    border: 1px solid #343434;
+                    border-radius: 12px;
+                  "
+                >
+                  <tr>
+                    <td style="padding: 20px 22px">
+                      <div
+                        style="
+                          margin-bottom: 8px;
+                          font-size: 12px;
+                          font-weight: 700;
+                          color: #c41f26;
+                          text-transform: uppercase;
+                          letter-spacing: 1px;
+                        "
+                      >
+                        Ausgewählter Tarif
+                      </div>
+
+                      <div
+                        style="
+                          font-size: 20px;
+                          font-weight: 700;
+                          color: #ffffff;
+                        "
+                      >
+                        {{planLabel}}
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                {{/if}}
+
+                <p
+                  style="
+                    margin: 0 0 8px;
+                    font-size: 16px;
+                    line-height: 1.6;
+                    color: #d5d5d5;
+                  "
+                >
+                  Freundliche Grüsse
+                </p>
+
+                <p
+                  style="
+                    margin: 0;
+                    font-size: 18px;
+                    font-weight: 700;
+                    color: #ffffff;
+                  "
+                >
+                  Strikebull MMA Club
+                </p>
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td
+                style="
+                  background-color: #0f0f0f;
+                  padding: 28px 32px;
+                  border-top: 1px solid #2c2c2c;
+                "
+              >
+                <p
+                  style="
+                    margin: 0 0 8px;
+                    font-size: 14px;
+                    line-height: 1.6;
+                    color: #bbbbbb;
+                  "
+                >
+                  Masanserstrasse 205<br />
+                  7000 Chur, Switzerland
+                </p>
+
+                <p style="margin: 14px 0 0; font-size: 14px; line-height: 1.8">
+                  <a
+                    href="mailto:info@strikebull.ch"
+                    style="color: #ffffff; text-decoration: none"
+                  >
+                    info@strikebull.ch
+                  </a>
+                  <br />
+
+                  <a
+                    href="https://strikebull.ch"
+                    style="color: #ffffff; text-decoration: none"
+                  >
+                    strikebull.ch
+                  </a>
+                  <br />
+
+                  <a
+                    href="https://www.instagram.com/strikebull_mma_club_chur_/"
+                    style="color: #ffffff; text-decoration: none"
+                  >
+                    @strikebull_mma_club_chur_
+                  </a>
+                  <br />
+
+                  <a
+                    href="tel:+41799032532"
+                    style="color: #ffffff; text-decoration: none"
+                  >
+                    +41 79 903 25 32
+                  </a>
+                </p>
+
+                <div
+                  style="
+                    margin-top: 20px;
+                    font-size: 12px;
+                    line-height: 1.5;
+                    color: #777777;
+                  "
+                >
+                  Diese E-Mail wurde automatisch versendet.
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
   </body>
 </html>
